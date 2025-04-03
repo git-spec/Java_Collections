@@ -30,5 +30,9 @@ public class Main {
             System.out.println("ID: " + student.id);
             System.out.println("Name: " + student.firstname + ' ' + student.lastname + "\n");
         }
+
+        for (Student student: students) {
+            School.addStudent(student);
+        }
     }
 }
