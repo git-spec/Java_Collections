@@ -17,4 +17,8 @@ public class School {
             System.out.println("Name: " + student.firstname + ' ' + student.lastname + "\n");
         }
     }
+
+    public static Student findStudent(int id) {
+        return students.getFirst();
+    }
 }
