@@ -4,21 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
-    static List<Student> students = new ArrayList<>();
+    private List<Student> students;
 
-    public static void addStudent(Student student) {
+    public School() {
+        this.students = new ArrayList<>();
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void addStudent(Student student) {
         students.add(student);
     }
 
-    public static void printStudents() {
+    public void printStudents() {
         System.out.println("Students:");
         for (Student student: students) {
-            System.out.println("ID: " + student.id);
-            System.out.println("Name: " + student.firstname + ' ' + student.lastname + "\n");
+            System.out.println("ID: " + student.id());
+            System.out.println("Name: " + student.firstname() + ' ' + student.lastname() + "\n");
         }
     }
 
-    public static Student findStudent(int id) {
-        return students.getFirst();
+    public Student findStudent(int id) {
+        Student result = null;
+        for (Student student : students) {
+            if (student.id() == id) result = student;
+        }
+        return result;
+    }
+
+    public void removeStudent(int id) {
+        this.students.remove(findStudent(id));
     }
 }
