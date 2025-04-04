@@ -7,15 +7,27 @@ class SchoolTest {
     @Test
     void findStudent_shouldReturnStudent_whenFoundWithID() {
         // GIVEN
-        int id = 12345678;
-        Student expected =  new Student(
+        int id = 123456;
+        Student expected = new Student(
                 123456,
                 "Max",
                 "Mustermann"
         );
         // WHEN
-        Student actual = School.findStudent(id);
+        School school = new School();
+        school.addStudent(expected);
+        Student actual = school.findStudent(id);
         // THEN
         assertEquals(expected, actual);
+    }
+    @Test
+    void findStudent_shouldReturnNull_whenNotFoundWithID() {
+        // GIVEN
+        int id = 123457;
+        // WHEN
+        School school = new School();
+        Student actual = school.findStudent(id);
+        // THEN
+        assertNull(actual);
     }
 }
