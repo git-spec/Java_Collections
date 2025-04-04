@@ -30,5 +30,18 @@ public class Main {
         }
 
         School.printStudents();
+
+        Telephone.add("John", 01618795463d);
+        Telephone.add("Lisa", 01753495741d);
+        Telephone.add("Gerald", 01671123655d);
+        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
+        System.out.println(' ');
+        System.out.println(Telephone.getSize());
+        System.out.println(' ');
+        Telephone.deleteByName("John");
+        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
+        System.out.println(' ');
+        Telephone.deleteAll();
+        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
     }
 }
