@@ -41,10 +41,10 @@ class SchoolTest {
                 "Mustermann"
         );
         // WHEN
-        School school = new School();
-        school.addStudent(student);
-        Student actual = school.removeStudent(id);
+        School actual = new School();
+        actual.addStudent(expected);
+        actual.removeStudent(id);
         // THEN
-        assertFalse(actual.students.contains(expected));
+        assertFalse(actual.getStudents().contains(expected));
     }
 }
