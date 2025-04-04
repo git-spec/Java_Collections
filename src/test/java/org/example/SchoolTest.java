@@ -30,4 +30,21 @@ class SchoolTest {
         // THEN
         assertNull(actual);
     }
+
+    @Test
+    void removeStudent_shouldReturnSmallerSize_whenRemoveWithID() {
+        // GIVEN
+        int id = 123456;
+        Student expected = new Student(
+                123456,
+                "Max",
+                "Mustermann"
+        );
+        // WHEN
+        School school = new School();
+        school.addStudent(student);
+        Student actual = school.removeStudent(id);
+        // THEN
+        assertFalse(actual.students.contains(expected));
+    }
 }
