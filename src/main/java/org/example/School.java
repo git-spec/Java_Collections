@@ -37,4 +37,16 @@ public class School {
     public void removeStudent(int id) {
         this.students.remove(findStudent(id));
     }
+
+    public void showCoursesOfStudent(int id) {
+        for (Student student : students) {
+            if (student.id() == id) {
+                System.out.println(student.firstname() + " " + student.lastname());
+                student.courses().forEach(course -> {
+                    System.out.println(course.name());
+                });
+                System.out.println("\n");
+            }
+        }
+    }
 }
