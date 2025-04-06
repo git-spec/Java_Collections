@@ -10,38 +10,61 @@ public class Main {
                         new Student(
                                 123456,
                                 "Max",
-                                "Mustermann"
+                                "Mustermann",
+                                new ArrayList<>()
                         ),
                         new Student(
                                 789101,
                                 "Erika",
-                                "Mustermann"
+                                "Mustermann",
+                                new ArrayList<>()
                         ),
                         new Student(
                                 111213,
                                 "Jon",
-                                "Doe"
+                                "Doe",
+                                new ArrayList<>()
                         )
                 )
         );
+        School school = new School();
 
         for (Student student: students) {
-            School.addStudent(student);
+            if (student.firstname().equals("Max")) {
+                student.setCourse(
+                    new Course(
+                            "Mathematik",
+                            "Gaussen",
+                            "C-322"
+                    )
+                );
+                student.setCourse(
+                        new Course(
+                                "Sport",
+                                "Dreibold",
+                                "C-600"
+                        )
+                );
+            }
+            if (student.firstname().equals("Erika")) student.setCourse(
+                    new Course(
+                            "Englisch",
+                            "Smith",
+                            "C-756"
+                    )
+            );
+            school.addStudent(student);
         }
 
-        School.printStudents();
+        school.printStudents();
 
-        Telephone.add("John", 01618795463d);
-        Telephone.add("Lisa", 01753495741d);
-        Telephone.add("Gerald", 01671123655d);
-        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
-        System.out.println(' ');
-        System.out.println(Telephone.getSize());
-        System.out.println(' ');
-        Telephone.deleteByName("John");
-        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
-        System.out.println(' ');
-        Telephone.deleteAll();
-        Telephone.book.forEach( (k, v) -> { System.out.println(k + " -> " + v); } );
+        Student student = school.findStudent(123456);
+        if (student != null) {
+            System.out.println(student.firstname() + " " + student.lastname() + "\n");
+        } else {
+            System.out.println("No student found with id 123457.\n");
+        }
+
+        school.showCoursesOfStudent(123456);
     }
 }
