@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class School {
     private List<Student> students;
@@ -26,12 +27,11 @@ public class School {
         }
     }
 
-    public Student findStudent(int id) {
-        Student result = null;
+    public Optional<Student> findStudent(int id) {
         for (Student student : students) {
-            if (student.id() == id) result = student;
+            if (student.id() == id) return Optional;
         }
-        return result;
+        return Optional.empty();
     }
 
     public void removeStudent(int id) {
