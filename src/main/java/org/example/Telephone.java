@@ -20,4 +20,10 @@ public class Telephone {
     public static void deleteAll() {
         book.clear();
     }
+
+    /**
+     * HashMap -> sehr schnell, unsortiert
+     * LinkedHashMap ->  sortiert nach input, etwas langsam
+     * TreeMap -> natürlich (alphabetisch oder numerisch) sortierte keys
+     */
 }
