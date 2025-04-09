@@ -6,6 +6,7 @@ public record Student(
         int id,
         String firstname,
         String lastname,
+        int age,
         List<Course> courses
         ) {
 
