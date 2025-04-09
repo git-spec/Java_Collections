@@ -29,13 +29,14 @@ public class School {
 
     public Optional<Student> findStudent(int id) {
         for (Student student : students) {
-            if (student.id() == id) return Optional;
+            if (student.id() == id) return Optional.of(student);
         }
         return Optional.empty();
     }
 
     public void removeStudent(int id) {
-        this.students.remove(findStudent(id));
+        Optional<Student> student = findStudent(id);
+        student.ifPresent(value -> this.students.remove(value));
     }
 
     public void showCoursesOfStudent(int id) {
