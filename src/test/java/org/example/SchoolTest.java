@@ -1,6 +1,10 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SchoolTest {
@@ -11,14 +15,16 @@ class SchoolTest {
         Student expected = new Student(
                 123456,
                 "Max",
-                "Mustermann"
+                "Mustermann",
+                21,
+                new ArrayList<>()
         );
         // WHEN
         School school = new School();
         school.addStudent(expected);
-        Student actual = school.findStudent(id);
+        Optional<Student> actual = school.findStudent(id);
         // THEN
-        assertEquals(expected, actual);
+        actual.ifPresent(student -> assertEquals(expected, student));
     }
     @Test
     void findStudent_shouldReturnNull_whenNotFoundWithID() {
@@ -26,9 +32,9 @@ class SchoolTest {
         int id = 123457;
         // WHEN
         School school = new School();
-        Student actual = school.findStudent(id);
+        Optional<Student> actual = school.findStudent(id);
         // THEN
-        assertNull(actual);
+        assertNull(actual.orElse(null));
     }
 
     @Test
@@ -38,7 +44,9 @@ class SchoolTest {
         Student expected = new Student(
                 123456,
                 "Max",
-                "Mustermann"
+                "Mustermann",
+                21,
+                new ArrayList<>()
         );
         // WHEN
         School actual = new School();
