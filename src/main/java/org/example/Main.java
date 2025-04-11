@@ -119,5 +119,16 @@ public class Main {
             System.out.println("Name: " + s.firstname() + ' ' + s.lastname());
             System.out.println("Age: " + s.age() + "\n");
         });
+
+        /** EXCEPTION **/
+        try {
+                if (student.isEmpty()) {
+                        throw new InvalidIDException("ID not found!");
+                } else {
+                        System.out.println(student.get().firstname() + " " + student.get().lastname() + "\n");
+                }
+        } catch(InvalidIDException e) {
+                e.getMessage();
+        }
     }
 }
