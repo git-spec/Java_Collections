@@ -125,7 +125,7 @@ public class Main {
                 Optional<Student> newStudent = school.findStudentOrThrowError(674838);
                 System.out.println(newStudent.get().firstname() + " " + newStudent.get().lastname() + "\n");
         } catch(InvalidIDException e) {
-                e.getMessage();
+                System.out.println(e.getMessage());;
         }
     }
 }
