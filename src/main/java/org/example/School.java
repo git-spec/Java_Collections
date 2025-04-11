@@ -34,6 +34,17 @@ public class School {
         return Optional.empty();
     }
 
+    public Optional<Student> findStudentOrThrowError(int id) throws InvalidIDException {
+        for (Student student : students) {
+            if (student.id() == id) {
+                return Optional.of(student);
+            } else {
+                throw new InvalidIDException("ID notfound!");
+            }
+        }
+        return Optional.empty();
+    }
+
     public void removeStudent(int id) {
         Optional<Student> student = findStudent(id);
         student.ifPresent(value -> this.students.remove(value));

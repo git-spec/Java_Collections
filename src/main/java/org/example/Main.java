@@ -122,11 +122,8 @@ public class Main {
 
         /** EXCEPTION **/
         try {
-                if (student.isEmpty()) {
-                        throw new InvalidIDException("ID not found!");
-                } else {
-                        System.out.println(student.get().firstname() + " " + student.get().lastname() + "\n");
-                }
+                Optional<Student> newStudent = school.findStudentOrThrowError(674838);
+                System.out.println(newStudent.get().firstname() + " " + newStudent.get().lastname() + "\n");
         } catch(InvalidIDException e) {
                 e.getMessage();
         }
